@@ -26,42 +26,44 @@
             {% csrf_token %}
 
             <div class="form-group" >
-              <input placeholder="아이디" class="form-control" name="username" />
+              <label for="exampleInputName2">Name</label>
+              <input placeholder="아이디" class="form-control" name="username"/>
             </div>
             <div class="form-group" >
+              <label for="exampleInputName2">Mention</label>
               <input placeholder="내용" class="form-control" name="content" />
             </div>
             <div class="form-group">
-              <button class="btn btn-default" type="submit">댓글 달기</button>
+              <button class="btn btn-primary" type="submit">댓글 달기</button>
             </div>
 
           </form>
       </div>
 
     </div>
-  </div>
 
 
 
-    <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-      <div class="sidebar-module">
-      <h4> Categories </h4>
-      <ol class="list-unstyled">
-          <li><a href="/"> all </a> </li>
-        {% for alias, category in category_list %}
-        <li><a href="/?category={{ alias }}"> {{ category }} </a> </li>
-        {% endfor%}
-      </ol>
-      </div>
-        <div class="sidebar-module"> </div>
-        <h4> Hashtags </h4>
+
+      <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+        <div class="sidebar-module">
+        <h4> Categories </h4>
         <ol class="list-unstyled">
-          {% for hashtag in hashag_list %}
-          <li>#{{ hashtag }}</li>
+            <li><a href="/"> all </a> </li>
+          {% for alias, category in category_list %}
+          <li><a href="/?category={{ alias }}"> {{ category }} </a> </li>
           {% endfor%}
         </ol>
+        </div>
+          <div class="sidebar-module"> </div>
+          <h4> Hashtags </h4>
+          <ol class="list-unstyled">
+            {% for hashtag in hashag_list %}
+            <li>#{{ hashtag }}</li>
+            {% endfor%}
+          </ol>
+      </div>
     </div>
-
-    </div>
+  </div>
 </div>
 {% endblock %}
